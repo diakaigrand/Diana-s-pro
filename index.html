@@ -5,6 +5,32 @@
     <title>My Webpage</title>
 
     <style type="text/css">
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
+        }
+
         h1 {
             color: blueviolet;
             font-size: 200%;
@@ -24,11 +50,6 @@
 
         }
 
-        .flex-container {
-            display: flex;
-            flex-direction: column;
-            background-color:
-        }
 
         .flex-container>div {
             background-color: #f1f1f1;
@@ -46,8 +67,9 @@
 
 <body>
 
-<img src="web.jfif"        
-width="200" height="200" aling="left">
+
+
+    <img src="web.jfif" width="200" height="200" aling="left">
     <div id="section">
         <h1><em>Diana Granda</em></h1>
         <p><a href="https://github.com/diakaigrand">GitHub</a></p>
@@ -61,15 +83,54 @@ width="200" height="200" aling="left">
 
     <p>About me:</p>
 
-    <div class="flex-container">
-        <div><a href="education.html">Education</a></div>
-        <div><a href="workhistory.html">Work History</a></div>
-        <div><a href="hobbies.html">Hobbies</a></div>
-        <div><a href="interest.html">Interests</a></div>
+    <button class="accordion">Education</button>
+    <div class="panel">
+        <li>Horizonte High School 2011</li>
+    <li>Helio Training 2020</li>
+    </div>
+    <button class="accordion">Work History</button>
+    <div class="panel">
+        <li>Business Development Acronis-Trizon LLC – Orem UT</li>
+    <li>Agency services Information center Allstate Insurance Company- Draper, UT</li>
+    <li>Customer Service Representative Allstate Contact Center – Pocatello, Id</li>
+    </div>
+    <button class="accordion">Hobbies</button>
+    <div class="panel">
+        <li>Learn to code</li>
+    <li>Dancing</li>
+    <li>Family</li>
+    <li>Hiking</li>
+    <li>Fishing</li>
+    </div>
+
+    <button class="accordion">Interests</button>
+    <div class="panel">
+        <li>NODE</li>
+        <li>EXPRESS</li>
+        <li>JavaScript</li>
+        <li>CSS</li>
+        <li>HTML</li>
+        <li>React</li>
     </div>
     <iframe width="560" height="400"
         src="https://heliotraining.com/learn-to-code-search/?gclid=CjwKCAiA-P7xBRAvEiwAow-VaUjg_8UEUnmcl69arhDKxY5iheyVhoMDELavPfcbND3ffJdLenzrZBoCelwQAvD_BwE"></iframe>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
 
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
